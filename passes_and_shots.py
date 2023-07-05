@@ -1,7 +1,7 @@
 
 # Function to draw the pitch
 from matplotlib.patches import Arrow
-from FCPython import createPitch
+from FootballField import createPitch
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
