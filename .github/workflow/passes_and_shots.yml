@@ -1,0 +1,31 @@
+name: Passes and shots
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          pip install matplotlib
+
+      - name: Plot football field
+        run: |
+          python football_field_plots.py
+
+      - name: Send notification
+        uses: actions/github-notify@v1
+        with:
+          message: "Football field plots successfully generated!"
